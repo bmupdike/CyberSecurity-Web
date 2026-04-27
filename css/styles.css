@@ -27,8 +27,9 @@ body{
   padding:40px 20px;
 }
 
+/* GLOBAL SECTION SPACING */
 section{
-  margin-top:40px;
+  margin-top:50px;
 }
 
 /* ===== Header ===== */
@@ -68,6 +69,7 @@ section{
 /* ===== Hero Section ===== */
 .hero{
   display:flex;
+  justify-content:center;   /* FIX CENTERING */
   gap:30px;
   align-items:center;
   padding:40px 0;
@@ -80,6 +82,7 @@ section{
   padding:36px;
   border-radius:10px;
   text-align:center;
+  max-width:600px;          /* PREVENT STRETCH */
 }
 
 .intro h2{
@@ -88,7 +91,7 @@ section{
 }
 
 .intro p{
-  max-width:700px;
+  max-width:600px;
   margin:18px auto 0;
   line-height:1.6;
 }
@@ -99,28 +102,48 @@ section{
   display:block;
 }
 
-/* ===== Panels ===== */
+/* ===== Panels (MAIN FIX HERE) ===== */
 .panel{
   background:var(--panel);
   padding:36px;
   border-radius:10px;
-  margin:24px 0;
+  margin:40px auto;
+  max-width:900px;   /* 🔥 THIS FIXES CENTERING ON ALL PAGES */
 }
 
+/* ===== Center Text ===== */
 .center{
   text-align:center;
+}
+
+/* ===== Better Text Layout ===== */
+.panel section{
+  text-align:center;
+}
+
+section p{
+  max-width:600px;
+  margin:0 auto 15px;
+}
+
+/* Keep lists readable */
+ul{
+  text-align:left;
+  display:inline-block;
 }
 
 /* ===== Columns ===== */
 .two-col{
   display:flex;
-  gap:30px;
+  justify-content:center;   /* 🔥 FIXES LEFT HEAVY ISSUE */
+  gap:40px;
   flex-wrap:wrap;
 }
 
 .two-col > *{
   flex:1;
   min-width:280px;
+  max-width:400px;
 }
 
 .three-col{
@@ -129,12 +152,13 @@ section{
   gap:25px;
 }
 
-/* ===== Cards (NEW - big improvement) ===== */
+/* ===== Cards ===== */
 .card{
   background:#252525;
   padding:20px;
   border-radius:10px;
   transition:0.3s;
+  text-align:left;
 }
 
 .card:hover{
