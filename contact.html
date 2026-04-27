@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/styles.css">
 
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -28,37 +29,129 @@
   </header>
 
   <main class="panel container contact-grid">
-  <h2 class="center">Contact Us!</h2>
 
-  <div class="contact-left">
-    <h4>Our info</h4>
-    <ul>
-      <li>980-444-CYBE</li>
-      <li>cyberhelpme@gmail.com</li>
-    </ul>
-    <h4>Subscribe to Our Newsletter</h4>
-    <form action="#" class="newsletter">
-      <input type="email" placeholder="you@example.com" aria-label="newsletter email">
-      <button>Submit</button>
-    </form>
-  </div>
+    <h2 class="center">Contact Us</h2>
 
-  <aside class="contact-right">
-    <h4>Ask questions and report suspicious activity!</h4>
-    <form action="#" class="contact-form">
-      <label>Name<input name="name" placeholder="First name"></label>
-      <label>Surname<input name="surname" placeholder="Surname"></label>
-      <label>Email<input name="email" type="email" placeholder="Email"></label>
-      <label>Message<textarea name="message" placeholder="Message"></textarea></label>
-      <button type="submit">Submit</button>
-    </form>
-  </aside>
-</main>
+    <!-- LEFT SIDE -->
+    <div class="contact-left">
 
+      <div class="card">
+        <h3>Our Info</h3>
+        <ul>
+          <li>📞 980-444-CYBE</li>
+          <li>📧 cyberhelpme@gmail.com</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Subscribe to Our Newsletter</h3>
+        <form class="newsletter">
+          <input type="email" placeholder="you@example.com" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="contact-right">
+
+      <form id="contactForm" class="contact-form" novalidate>
+
+        <h3>Ask Questions or Report Suspicious Activity</h3>
+
+        <label>
+          Name
+          <input type="text" id="name" placeholder="First name" required>
+          <small class="error"></small>
+        </label>
+
+        <label>
+          Surname
+          <input type="text" id="surname" placeholder="Surname" required>
+          <small class="error"></small>
+        </label>
+
+        <label>
+          Email
+          <input type="email" id="email" placeholder="Email" required>
+          <small class="error"></small>
+        </label>
+
+        <label>
+          Message
+          <textarea id="message" placeholder="Message" required></textarea>
+          <small class="error"></small>
+        </label>
+
+        <button type="submit">Send Message</button>
+
+      </form>
+
+    </div>
+
+  </main>
 
   <footer class="site-footer container">
     <p>&copy; 2026 Cybersecurity</p>
   </footer>
+
+  <!-- VALIDATION SCRIPT -->
+  <script>
+  const form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let isValid = true;
+
+    const name = document.getElementById('name');
+    const surname = document.getElementById('surname');
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+
+    // Clear previous errors
+    document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+    // Name validation
+    if (name.value.trim() === '') {
+      showError(name, "Name is required");
+      isValid = false;
+    }
+
+    // Surname validation
+    if (surname.value.trim() === '') {
+      showError(surname, "Surname is required");
+      isValid = false;
+    }
+
+    // Email validation
+    if (!validateEmail(email.value)) {
+      showError(email, "Enter a valid email");
+      isValid = false;
+    }
+
+    // Message validation
+    if (message.value.trim().length < 10) {
+      showError(message, "Message must be at least 10 characters");
+      isValid = false;
+    }
+
+    if (isValid) {
+      alert("Form submitted successfully! (Demo only)");
+      form.reset();
+    }
+  });
+
+  function showError(input, message) {
+    const error = input.parentElement.querySelector('.error');
+    error.textContent = message;
+  }
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+  </script>
+
 </body>
 </html>
-
