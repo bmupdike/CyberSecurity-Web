@@ -27,7 +27,6 @@ body{
   padding:40px 20px;
 }
 
-/* GLOBAL SECTION SPACING */
 section{
   margin-top:50px;
 }
@@ -69,7 +68,7 @@ section{
 /* ===== Hero Section ===== */
 .hero{
   display:flex;
-  justify-content:center;   /* FIX CENTERING */
+  justify-content:center;
   gap:30px;
   align-items:center;
   padding:40px 0;
@@ -82,7 +81,7 @@ section{
   padding:36px;
   border-radius:10px;
   text-align:center;
-  max-width:600px;          /* PREVENT STRETCH */
+  max-width:600px;
 }
 
 .intro h2{
@@ -102,13 +101,13 @@ section{
   display:block;
 }
 
-/* ===== Panels (MAIN FIX HERE) ===== */
+/* ===== Panels ===== */
 .panel{
   background:var(--panel);
   padding:36px;
   border-radius:10px;
   margin:40px auto;
-  max-width:900px;   /* 🔥 THIS FIXES CENTERING ON ALL PAGES */
+  max-width:900px;
 }
 
 /* ===== Center Text ===== */
@@ -116,7 +115,7 @@ section{
   text-align:center;
 }
 
-/* ===== Better Text Layout ===== */
+/* ===== Text Layout ===== */
 .panel section{
   text-align:center;
 }
@@ -126,7 +125,6 @@ section p{
   margin:0 auto 15px;
 }
 
-/* Keep lists readable */
 ul{
   text-align:left;
   display:inline-block;
@@ -135,7 +133,7 @@ ul{
 /* ===== Columns ===== */
 .two-col{
   display:flex;
-  justify-content:center;   /* 🔥 FIXES LEFT HEAVY ISSUE */
+  justify-content:center;
   gap:40px;
   flex-wrap:wrap;
 }
@@ -184,12 +182,18 @@ p{
   color:#999;
 }
 
-/* ===== Contact Page ===== */
+/* ===== Contact Page (IMPROVED) ===== */
 .contact-grid{
   display:grid;
-  grid-template-columns:1fr 420px;
+  grid-template-columns:1fr 1.2fr;
   gap:40px;
   align-items:start;
+}
+
+.contact-left{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
 }
 
 .contact-left ul{
@@ -201,14 +205,16 @@ p{
 .contact-form{
   background:#fff;
   color:#111;
-  padding:20px;
+  padding:25px;
   border-radius:10px;
+  width:100%;
 }
 
 .contact-form label{
   display:block;
   margin-bottom:12px;
   color:#222;
+  font-size:14px;
 }
 
 .contact-form input,
@@ -217,23 +223,31 @@ p{
   padding:10px;
   border:1px solid #ddd;
   border-radius:6px;
+  margin-top:5px;
+}
+
+.contact-form textarea{
+  min-height:100px;
+  resize:vertical;
 }
 
 .contact-form button{
   display:block;
-  margin-top:12px;
-  padding:10px 14px;
+  margin-top:15px;
+  padding:12px;
   border-radius:8px;
   background:#222;
   color:#fff;
   border:none;
   cursor:pointer;
+  width:100%;
 }
 
+/* ===== Newsletter Fix ===== */
 .newsletter{
   display:flex;
-  gap:12px;
-  margin-top:8px;
+  gap:10px;
+  margin-top:10px;
 }
 
 .newsletter input{
@@ -250,6 +264,15 @@ p{
   color:#fff;
   border:none;
   cursor:pointer;
+  white-space:nowrap;
+}
+
+/* ===== Validation Errors (NEW) ===== */
+.error{
+  color:#ff4d4d;
+  font-size:12px;
+  margin-top:4px;
+  display:block;
 }
 
 /* ===== Images ===== */
